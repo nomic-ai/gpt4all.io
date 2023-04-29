@@ -5,10 +5,6 @@ import Vertical from './components/connectors/vertical';
 
 import DownloadBar from './components/download_bar';
 
-// https://blog.saeloun.com/2022/07/08/react-custom-infinite-scroll-with-pagination
-// TODO, implement position tracking in history (share url by timestamp)
-// Implement hook in coffee site
-
 
 // TODO: media breakpoints
 
@@ -68,10 +64,20 @@ function App() {
                 )}
             </div>
         </div>
+
+        {/* TODO: fix the spacing and animation here */}
         <div className='w-full items-center flex justify-center'>
 
         <Vertical/>
         </div>
+
+        <div className='flex flex-row justify-between'>
+                <div className=''>
+
+                </div>
+
+        </div>
+
 
 
       </main>

@@ -1,98 +1,79 @@
-import './App.css';
+import './styles/globals.css';
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import axios from 'axios';
-import ReactGA from 'react-ga4';
+import Task from './components/task';
+import Vertical from './components/connectors/vertical';
+
+import DownloadBar from './components/download_bar';
 
 // https://blog.saeloun.com/2022/07/08/react-custom-infinite-scroll-with-pagination
 // TODO, implement position tracking in history (share url by timestamp)
 // Implement hook in coffee site
 
-// const { REACT_APP_API_BASE_PATH } = process.env;
-const REACT_APP_API_BASE_PATH = 'https://api.gptvsgpt.com'
-if(REACT_APP_API_BASE_PATH.includes('gptvsgpt')){
-    const TRACKING_ID = 'G-RJPWB9JXJR';
-    ReactGA.initialize(TRACKING_ID);
-    ReactGA.send('pageview');
-}
 
+// TODO: media breakpoints
 
-function ChatArea(chat_id = "gpt-3.5-turbo_vs_gpt-3.5-turbo"){
-    const [previousChats, setPreviousChats] = useState([]);
+// TODO: fetch download links from .json blob
 
-  useEffect(() => {
-    const fetchHistory = async () => {
-        const result = await axios(
-          `${REACT_APP_API_BASE_PATH}/v1/chat/`+"gpt-3.5-turbo_vs_gpt-3.5-turbo",
-        );
-        setPreviousChats(result.data.history);
-        }
-    fetchHistory()
+// TODO: "hot tasks" as buttons/cards, "feeding" into the
+// gif/example viewer, as you select a task, changes the gif example to that specific task
 
-    const intervalId = setInterval(() => {
-      // call a function to update the component's data
-        fetchHistory()
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-    return (
-        <div>
-            <div className={"chat-area-title"}>
-                <p>GPT-3.5-Turbo vs GPT-3.5-Turbo</p>
-            </div>
-        <div className="chat-area">
-            {
-                previousChats && previousChats.length > 0 ? <div className='chat-message'>
-                    <div className='agent'><span>{previousChats[1]['agent']}</span></div>
-                    <div className='message'>
-                        <div className="dots">
-                            <div className="dot"></div>
-                            <div className="dot"></div>
-                            <div className="dot"></div>
-                        </div>
-                    </div>
-                    <div className='timestamp'></div>
-                </div> : null
-            }
-            {
-            previousChats?.map( (item) =>
-            <div className='chat-message' key={item['message_id']}>
-                <div className='agent'><span>{item['agent']}</span></div>
-                <div className='message'><p>{item['message']}</p></div>
-                <div className='timestamp'><p>{moment.utc(item['message_timestamp']).local().startOf('seconds').fromNow()}</p></div>
-            </div>
-            )
-            }
-
-        </div>
-        <div className="below-chatarea">
-              <p>This website runs on coffee. When the coffee runs out the LLM's stop chatting. </p>
-              <a href="https://www.buymeacoffee.com/gptvsgpt" target="_blank">
-                  <img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style={{height: '30px', width: '100px'}}/>
-              </a>
-            </div>
-        </div>
-    )
-}
+const installers = [
+    {
+        osName: "Windows", link: "#"
+    },
+    {
+        osName: "OSX", link: "#"
+    },
+    {
+        osName: "Ubuntu", link: "#"
+    }
+];
 
 function App() {
   return (
-    <div className='App'>
-      <header>
-          <h1>GPTvsGPT</h1>
-          {/*<p>GPT Turbo vs GPT Turbo</p>*/}
+    <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden'>
+      <header className='w-full h-14 p-6 flex flex-row'>
       </header>
-      <main>
-          <div className={"sidebar"}>
-              <p>Watch LLM's Chat. Forever. Well kind-of forever. </p>
-              <p>This website runs on coffee. When the coffee runs out the LLM's stop chatting. </p>
-              <a href="https://www.buymeacoffee.com/gptvsgpt" target="_blank">
-                  <img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" style={{height: '30px', width: '100px'}}/>
-              </a>
-          </div>
-          <ChatArea chat_id={"gpt-3.5-turbo_vs_gpt-3.5-turbo"}/>
+      <main className='flex flex-col justify-center h-full items-center px-36 mt-24'>
+        <div className='flex flex-row justify-between w-full'>
+            <div className='flex flex-col w-1/2 gap-4'>
+                <h2 className='text-3xl font-bold'>
+                    GPT4All
+                </h2>
+                <p className='text-5xl leading-normal pr-12'>
+                A free-to-use, locally running, privacy-aware chatbot that runs on your laptop. <strong>No GPU required.</strong>
+                </p>
+
+            </div>
+
+            <div className='w-1/2'>
+                <div className='border w-full h-full'>
+                    placeholder for gif
+                </div>
+            </div>
+        </div>
+
+
+
+        <div className='flex flex-col gap-4 mt-24 w-full items-center'>
+            <h4 className='font-semibold text-zinc-500/50 text-lg'>Download Installers</h4>
+            
+            <div className='flex flex-row justify-center gap-24 mt-4'>
+                {installers.map((obj, idx) =>
+                    <DownloadBar
+                        key={idx}
+                        osName={obj.osName}
+                        link={obj.link}
+                    />
+                )}
+            </div>
+        </div>
+        <div className='w-full items-center flex justify-center'>
+
+        <Vertical/>
+        </div>
+
+
       </main>
       {/*<footer>footer</footer>*/}
     </div>

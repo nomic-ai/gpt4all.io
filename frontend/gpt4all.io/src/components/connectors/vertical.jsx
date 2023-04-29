@@ -2,9 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Vertical = () => {
-    const path = "m197.32283 25.03412l-0 241.48032";
+    const path = "m197.32283 25.03412l-0 100.48032";
     const width = 317;
-    const height = 200;
+    const height = 120;
+    const translate = -36;
 
     return (
         <svg
@@ -14,13 +15,13 @@ const Vertical = () => {
             fill="none"
         >
             <path
-                transform="translate(-20,0)"
+                transform={`translate(${translate},0)`}
                 d={path}
                 stroke="black"
                 strokeOpacity="0.2"
             />
             <path
-                transform="translate(-20,0)"
+                transform={`translate(${translate},0)`}
                 d={path}
                 stroke="url(#pulse-1)"
                 strokeLinecap="round"
@@ -31,7 +32,7 @@ const Vertical = () => {
                 stroke="gray"
                 // transform="translate(-20,0)"
                 animate={{
-                    x:[-20, -20],
+                    x:[translate, translate],
                     y:[0, height]
                 }}
                 transition={{

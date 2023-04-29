@@ -1,9 +1,9 @@
 import './styles/globals.css';
 import React, { useState, useEffect } from 'react';
 import Vertical from './components/connectors/vertical';
-import { Globe2, Edit3, FileSearch, Terminal } from "lucide-react";
 
 import DownloadBar from './components/download_bar';
+import InstallInstructions from './components/install_instructions';
 
 
 // TODO: media breakpoints
@@ -75,10 +75,6 @@ function App() {
             <span className='text-lg text-slate-500 text-center mt-2'>Explore what GPT4All can do. On your machine.</span>
         </div>
 
-        
-
-
-
       </main>
       <div className='w-full px-36 mt-8 flex justify-center'>
         <div className='grid grid-cols-2 gap-6'>
@@ -128,8 +124,15 @@ function App() {
                             </p>
                         </div>
                     </div>
+            </div>
 
-                
+        </div>
+        <div className='w-full flex flex-col px-36 mt-24'>
+            <h2 className='text-4xl font-bold text-center'>
+                    Install Instructions
+            </h2>
+            <div className='w-full mt-8'>
+                    <InstallInstructions/>
             </div>
         </div>
       {/*<footer>footer</footer>*/}

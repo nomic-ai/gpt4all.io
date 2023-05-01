@@ -156,9 +156,13 @@ function App() {
 
             </div>
 
-            <div className='w-1/2'>
-                <div className='border w-full h-full'>
-                    placeholder for gif
+            <div className='w-1/2 relative'>
+                <div className='w-full h-full'>
+                    <img
+                        src={process.env.PUBLIC_URL + "/landing.gif"}
+                        className='rounded-md'
+                    />
+                    <span className='absolute bottom-0 left-4 text-xs text-slate-400 translate-y-4'>Running on M1 Mac (not sped up)</span>
                 </div>
             </div>
         </div>

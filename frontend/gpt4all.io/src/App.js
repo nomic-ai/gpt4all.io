@@ -12,8 +12,7 @@ import ModelsTable from './components/models';
 
 // TODO: media breakpoints
 
-// TODO: fetch download links from .json blob
-
+// Links to project in the GPT4All ecosystem. Lives here as const to keep things easy.
 const ecosystem_links = [
     {
         icon: "/github-mark.svg",
@@ -61,7 +60,7 @@ const ecosystem_links = [
    
 ]
 
-
+// Update installers here
 const installers = [
     {
         osName: "Windows", link: "#"
@@ -74,17 +73,10 @@ const installers = [
     }
 ];
 
-// TODO: fetch available models
-const getModels = async () => {
-    return await fetch()
-};
 
 function App() {
 
     const [showMore, setShowMore] = useState(false);
-    const [models, setModels] = useState([]);
-
-    
 
     return (
     <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden relative'>
@@ -139,7 +131,6 @@ function App() {
             </div>
         </div>
 
-        {/* TODO: fix the spacing and animation here */}
         <div className='w-full items-center flex flex-col justify-center mb-24'>
 
             <Vertical/>

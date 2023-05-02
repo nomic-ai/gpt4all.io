@@ -8,7 +8,6 @@ const DownloadBar = (
     {
         osName,
         link,
-        logo
     }
 ) => {
     

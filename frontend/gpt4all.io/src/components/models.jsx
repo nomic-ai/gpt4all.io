@@ -42,14 +42,14 @@ const ModelsTable = () =>
 
     return (
         <div className="flex flex-col justify-center gap-4 mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-2">Available models</h2>
+            <h2 className="text-4xl font-bold text-center mb-2">Model Explorer</h2>
             <Select onValueChange={onSelect}>
                 <SelectTrigger className="w-[300px] sm:w-[400px] mx-auto">
                     <SelectValue placeholder={models[0] && models[0].filename}/>
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectLabel>Available models</SelectLabel>
+                        <SelectLabel>Model Explorer</SelectLabel>
                         {
                             models.map((obj, idx) =>
                                 <SelectItem value={obj.filename} key={idx}>{obj.filename}</SelectItem>
@@ -68,7 +68,7 @@ const ModelsTable = () =>
                             </div>
                             <p className="leading-normal">{selectedModel.description}</p>
                             <div className="w-full flex flex-row mt-4 justify-end">
-                                <a href="#">
+                                <a href={`https://gpt4all.io/models/${selectedModel.filename}`}>
                                     <ArrowBigDownDash className="w-6 h-6"/>
                                 </a>
                             </div>

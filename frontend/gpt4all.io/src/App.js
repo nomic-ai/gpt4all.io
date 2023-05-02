@@ -23,14 +23,14 @@ const ecosystem_links = [
     {
         icon: "/github-mark.svg",
         url: "https://github.com/nomic-ai/gpt4all",
-        title: "GPT4All Chat Source",
-        description: "See the source code of the chat launcher and contribute!"
+        title: "GPT4All Chat",
+        description: "A multi-platform chat interface for running local LLMs"
     },
     {
         icon: "/github-mark.svg",
         url: "https://github.com/nomic-ai/pygpt4all",
         title: "Python Bindings",
-        description: "GPT4All Python Bindings"
+        description: "Integrate a locally running LLM in any Python environment."
     }
     
    
@@ -75,7 +75,7 @@ function App() {
                     GPT4All
                 </h2>
                 <p className='text-3xl md:text-5xl leading-normal lg:pr-12'>
-                A free-to-use, locally running, privacy-aware chatbot. <strong>No GPU required.</strong>
+                A free-to-use, locally running, privacy-aware chatbot. <strong>No GPU or internet required.</strong>
                 </p>
 
             </div>
@@ -122,7 +122,7 @@ function App() {
       <div className='w-full px-8 md:px-36 mt-8 flex justify-center'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                     <CapabilityCard
-                        header="Answer question about the world"
+                        header="Answer questions about the world"
                         description="Ask GPT4All about anything."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
@@ -130,21 +130,21 @@ function App() {
 
                     <CapabilityCard
                         header="Personal writing assistant"
-                        description="Write emails, documents, creative stories, poems, and plays."
+                        description="Write emails, documents, creative stories, poems, songs and plays."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Understand documents"
-                        description="Provide your own text documents and receive summaries and answers about their contents, fully locally."
+                        description="Provide your own text documents and receive summaries and answers about their contents."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Write code"
-                        description="GPT4All can assist you in writing code."
+                        description="Get guidance on easy coding tasks. Code capabilities are under improvement."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
@@ -165,10 +165,10 @@ function App() {
             <PerformanceTable/>
         </div>
 
-        <div className='sm:hidden block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
-            <h2 className='text-4xl font-bold text-center'>Performance Benchmarks</h2>
-            <PerformanceTableMobile/>
-        </div>
+        {/*<div className='sm:hidden block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>*/}
+        {/*    <h2 className='text-4xl font-bold text-center'>Performance Benchmarks</h2>*/}
+        {/*    <PerformanceTableMobile/>*/}
+        {/*</div>*/}
 
         
         <div className='flex flex-col w-full text-center gap-4 sm:px-0 px-4'>
@@ -206,9 +206,54 @@ function App() {
                 GTP4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
 
             </p>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                The goal is simple - be the best instruction tuned assistant-style language model that any person or enterprise can freely use, distribute and build on.
+            </p>
+
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                A GPT4All model is a 3GB - 8GB file that you can download and plug into the GPT4All open-source ecosystem software. <b>Nomic AI</b> supports and maintains
+                this software ecosystem to enforce quality and security alongside spearheading the effort to allow any person or enterprise to easily train and deploy
+                their own on-edge large language models.
+            </p>
+
+
         </div>
         <div className='w-full px-4 sm:px-8 md:px-36 flex justify-center items-center mt-14'>
             <ModelsTable/>
+        </div>
+
+
+        <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
+            <h2 className='text-4xl font-bold text-center'>GPT4All Datasets</h2>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                To train a powerful instruction-tuned assistant on your own data, you need to curate high-quality training and instruction-tuning datasets. Nomic AI has built
+                a platform called <b><a href="https://atlas.nomic.ai/">Atlas</a></b> to make manipulating and curating LLM training data easy.
+            </p>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                You can find the latest open-source, Atlas-curated GPT4All dataset on <b><a href="https://huggingface.co/datasets/nomic-ai/gpt4all-j-prompt-generations">Huggingface</a></b>.
+                Make sure to use the latest data version.
+            </p>
+
+        </div>
+
+        <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
+            <h2 className='text-4xl font-bold text-center'>GPT4All Open Source Datalake</h2>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                Data is one the most important ingredients to successfully building a powerful, general purpose large language model. The GPT4All community has built the GPT4All Open Source datalake
+                as a staging ground for contributing instruction and assistant tuning data for future GPT4All model trains. It allows anyone to contribute to the democratic process of training
+                a large language model.
+            </p>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
+                All data contributions to the GPT4All Datalake will be open-sourced in their raw and Atlas-curated form. You can learn more details about the datalake on <b><a href="https://github.com/nomic-ai/gpt4all-datalake">Github</a></b>. You can contribute by using the GPT4All Chat client and 'opting-in' to
+                share your data on start-up. By default, the chat client will not let any conversation history leave your computer.
+            </p>
+
+            <p>
+                Explore a recent snapshot of the GPT4All Datalake in Atlas below.
+            </p>
+            <iframe src="https://atlas.nomic.ai/map/gpt4all-datalake" width="100%" height="1000px">
+            </iframe>
+
         </div>
         <div className='h-48 mt-24 w-screen'></div>
       {/*<footer>footer</footer>*/}

@@ -10,7 +10,7 @@ const EcosystemItem = (
 ) => 
 {
     return (
-        <div className="w-[200px] lg:w-[300px] h-24 rounded-md bg-slate-50 p-4 flex flex-col">
+        <div className="w-[200px] lg:w-[300px] h-24 rounded-md bg-slate-50 p-4 flex flex-col" onClick={()=> window.open(url, "_blank")} style={{cursor: 'pointer'}}>
             <div className="flex flex-row gap-2">
                 <img
                     src={icon}
@@ -19,7 +19,7 @@ const EcosystemItem = (
                 />
                 <h2 className="font-semibold">{title}</h2>
             </div>
-            <span className="text-slate-400 text-xs">
+            <span className="text-slate-400 text-xs pt-2">
                 {description}
             </span>
         </div>

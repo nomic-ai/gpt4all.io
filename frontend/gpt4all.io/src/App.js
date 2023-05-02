@@ -16,46 +16,22 @@ import ModelsTable from './components/models';
 const ecosystem_links = [
     {
         icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
+        url: "https://github.com/nomic-ai/gpt4all",
+        title: "GPT4All Training",
+        description: "Train your own GPT4All models."
     },
     {
         icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
+        url: "https://github.com/nomic-ai/gpt4all",
+        title: "GPT4All Chat Source",
+        description: "See the source code of the chat launcher and contribute!"
     },
     {
         icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: "/github-mark.svg",
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
+        url: "https://github.com/nomic-ai/pygpt4all",
+        title: "Python Bindings",
+        description: "GPT4All Python Bindings"
+    }
     
    
 ]
@@ -80,7 +56,7 @@ function App() {
 
     return (
     <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden relative'>
-      <header className='z-20 fixed w-full h-14 p-6 flex flex-row gap-8 items-center bg-slate-50/50 backdrop-blur-sm'>
+      <header className='z-20 fixed w-full h-14 p-6 flex flex-row gap-8 items-center bg-slate-50/50'>
         <img
             src={process.env.PUBLIC_URL + "/gpt4all-128.png"}
             className='w-8 h-8'
@@ -99,7 +75,7 @@ function App() {
                     GPT4All
                 </h2>
                 <p className='text-3xl md:text-5xl leading-normal lg:pr-12'>
-                A free-to-use, locally running, privacy-aware chatbot that runs on your laptop. <strong>No GPU required.</strong>
+                A free-to-use, locally running, privacy-aware chatbot. <strong>No GPU required.</strong>
                 </p>
 
             </div>
@@ -112,7 +88,7 @@ function App() {
                         className='rounded-md h-full mx-auto lg:mx-none'
                     />
                     </p>
-                    <p className='text-xs text-slate-400 mt-2'>Running on M1 Mac (normal speed)</p>
+                    <p className='text-xs text-slate-400 mt-2 ml-12'>Real-time inference latency on an M1 Mac</p>
                 </div>
             </div>
         </div>
@@ -120,7 +96,7 @@ function App() {
 
 
         <div className='flex flex-col gap-4 mt-24 w-full items-center'>
-            <h4 className='font-semibold text-zinc-500/50 text-lg'>Download Installers</h4>
+            <h4 className='font-semibold text-zinc-500/50 text-lg'>Download Desktop Chat Client</h4>
             
             <div className='flex flex-row justify-center gap-24 mt-4'>
                 {installers.map((obj, idx) =>
@@ -139,7 +115,7 @@ function App() {
             <h2 className='text-4xl font-bold text-center mt-8'>
                     GPT4All's Capabilities
             </h2>
-            <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your machine.</span>
+            <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your own hardware.</span>
         </div>
 
       </main>
@@ -147,14 +123,14 @@ function App() {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                     <CapabilityCard
                         header="Answer question about the world"
-                        description="Ask GPT4All about anything on your mind. A conversational way to learn new concepts."
+                        description="Ask GPT4All about anything."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Personal writing assistant"
-                        description="GPT4all can write emails, documents, and assist with writing creative stories, poems, and plays."
+                        description="Write emails, documents, creative stories, poems, and plays."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
@@ -168,7 +144,7 @@ function App() {
 
                     <CapabilityCard
                         header="Write code"
-                        description="GPT4All can assist you in writing code by Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                        description="GPT4All can assist you in writing code."
                         gif={process.env.PUBLIC_URL+"/code_example.gif"}
                         still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
@@ -177,7 +153,7 @@ function App() {
         </div>
         <div className='w-full flex flex-col px-4 sm:px-8 md:px-36 mt-24'>
             <h2 className='text-4xl font-bold text-center'>
-                    Install Instructions
+                    Installation Instructions
             </h2>
             <div className='w-full mt-8'>
                     <InstallInstructions/>
@@ -185,12 +161,12 @@ function App() {
         </div>
         
         <div className='hidden sm:block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
-            <h2 className='text-4xl font-bold text-center mb-4'>Model Performance</h2>
+            <h2 className='text-4xl font-bold text-center mb-4'>Performance Benchmarks</h2>
             <PerformanceTable/>
         </div>
 
         <div className='sm:hidden block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
-            <h2 className='text-4xl font-bold text-center'>Model Performance</h2>
+            <h2 className='text-4xl font-bold text-center'>Performance Benchmarks</h2>
             <PerformanceTableMobile/>
         </div>
 
@@ -199,7 +175,7 @@ function App() {
             <h2 className='text-4xl font-semibold mt-24'>
                 GPT4All Ecosystem
             </h2>
-            <span className='text-lg text-slate-500 text-center'>Explore the GPT4All open source community</span>
+            <span className='text-lg text-slate-500 text-center'>Explore the GPT4All open source ecosystem</span>
 
         </div>
         <div className={`w-full flex justify-center ${showMore ? "h-full": "max-h-[300px]"} mt-12`}>
@@ -216,18 +192,19 @@ function App() {
                     )
                 }
                 
-                <div className={`${showMore ? "hidden": ""} group z-10 absolute bottom-0 left-0 w-full h-24 items-end flex justify-center bg-gradient-to-t from-white`}>
-                    <button onClick={() => setShowMore(true)} className='bg-transparent flex flex-col items-center'>
-                        <span className='text-xs text-slate-600 group-hover:text-black'>Show more</span>
-                        <ChevronDown className='w-6 h-6'/>
-                    </button>
-                </div>
+                {/*<div className={`${showMore ? "hidden": ""} group z-10 absolute bottom-0 left-0 w-full h-24 items-end flex justify-center bg-gradient-to-t from-white`}>*/}
+                {/*    <button onClick={() => setShowMore(true)} className='bg-transparent flex flex-col items-center'>*/}
+                {/*        <span className='text-xs text-slate-600 group-hover:text-black'>Show more</span>*/}
+                {/*        <ChevronDown className='w-6 h-6'/>*/}
+                {/*    </button>*/}
+                {/*</div>*/}
             </div>
         </div>
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>How GPT4All Works</h2>
             <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                GTP4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
+
             </p>
         </div>
         <div className='w-full px-4 sm:px-8 md:px-36 flex justify-center items-center mt-14'>

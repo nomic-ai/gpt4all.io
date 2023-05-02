@@ -17,7 +17,7 @@ const DownloadBar = (
                 {
                     osName === "Windows" &&
                     <WindowsLogo
-                        className="w-4 h-4 mr-2"
+                        className="w-4 h-4 mr-1"
                     />
                 }
                 {

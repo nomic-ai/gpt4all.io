@@ -15,7 +15,7 @@ const EcosystemItem = (
             <div className="flex flex-row gap-2">
                 <img
                     src={icon}
-                    className="w-12 h-12 rounded-full"
+                    className="w-8 h-8 rounded-full"
                     alt="#"
                 />
                 <h2 className="font-semibold">{title}</h2>

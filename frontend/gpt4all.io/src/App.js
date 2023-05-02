@@ -8,99 +8,57 @@ import InstallInstructions from './components/install_instructions';
 import EcosystemItem from './components/ecosystem_item';
 import CapabilityCard from './components/capability_card';
 import PerformanceTable from './components/performance_table';
+import ModelsTable from './components/models';
 
 // TODO: media breakpoints
 
 // TODO: fetch download links from .json blob
 
-// TODO: "hot tasks" as buttons/cards, "feeding" into the
-// gif/example viewer, as you select a task, changes the gif example to that specific task
-
 const ecosystem_links = [
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
     {
-        icon: null,
+        icon: "/github-mark.svg",
         url: "#",
         title: "Testing",
         description: "A test GPT4All project that does cool things with LLMs"   
     },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
-    {
-        icon: null,
-        url: "#",
-        title: "Testing",
-        description: "A test GPT4All project that does cool things with LLMs"   
-    },
+    
+   
 ]
 
 
@@ -120,8 +78,6 @@ const installers = [
 const getModels = async () => {
     return await fetch()
 };
-
-// TODO: build experimental results table -> add average score col -> bold top score in each -> highlight vGroovy
 
 function App() {
 
@@ -156,13 +112,13 @@ function App() {
 
             </div>
 
-            <div className='w-1/2 relative'>
-                <div className='w-full h-full'>
+            <div className='w-1/2 lg:pl-24'>
+                <div className='w-full relative'>
                     <img
                         src={process.env.PUBLIC_URL + "/landing.gif"}
-                        className='rounded-md'
+                        className='rounded-md h-full'
                     />
-                    <span className='absolute bottom-0 left-4 text-xs text-slate-400 translate-y-4'>Running on M1 Mac (not sped up)</span>
+                    <span className='absolute bottom-0 left-4 text-xs text-slate-400 lg:translate-y-4'>Running on M1 Mac (normal speed)</span>
                 </div>
             </div>
         </div>
@@ -197,26 +153,31 @@ function App() {
       <div className='w-full px-36 mt-8 flex justify-center'>
             <div className='grid grid-cols-2 gap-6'>
                     <CapabilityCard
-                        header="Answer questions about the world"
-                        description="Ask GPT4All about anything on your mind, from philosophy to mathematics. A conversational way to learn new concepts."
-                        gif="#"
+                        header="Answer question about the world"
+                        description="Ask GPT4All about anything on your mind. A conversational way to learn new concepts."
+                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
+                        still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Personal writing assistant"
                         description="GPT4all can write emails, documents, and assist with writing creative stories, poems, and plays."
-                        gif="#"
+                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
+                        still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Understand documents"
                         description="Provide your own text documents and receive summaries and answers about their contents, fully locally."
-                        gif="#"
+                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
+                        still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
 
                     <CapabilityCard
                         header="Write code"
                         description="GPT4All can assist you in writing code by Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
+                        still={process.env.PUBLIC_URL+"/code_still.png"}
                     />
             </div>
 
@@ -270,6 +231,9 @@ function App() {
             <p className='leading-normal w-2/3 mx-auto'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
             </p>
+        </div>
+        <div className='w-full px-36 flex justify-center items-center mt-14'>
+            <ModelsTable/>
         </div>
         <div className='h-48 mt-24 w-screen'></div>
       {/*<footer>footer</footer>*/}

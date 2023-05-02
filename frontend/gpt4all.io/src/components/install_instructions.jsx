@@ -10,14 +10,14 @@ const InstallInstructions = () => {
     <Tabs
     defaultValue="windows" className="w-full"
     >
-      <TabsList className="grid grid-cols-3 w-[400px] mx-auto mb-8">
+      <TabsList className="grid grid-cols-3 w-full sm:w-[400px] mx-auto mb-8">
         <TabsTrigger value="windows">Windows</TabsTrigger>
         <TabsTrigger value="macos">MacOS</TabsTrigger>
         <TabsTrigger value="ubuntu">Ubuntu</TabsTrigger>
       </TabsList>
 
       <TabsContent value="windows">
-        <div className="mx-auto w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
+        <div className="mx-auto w-full lg:w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
           <h2 className="text-xl font-semibold">
             Windows Installer
           </h2>

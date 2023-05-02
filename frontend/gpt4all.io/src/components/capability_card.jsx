@@ -15,14 +15,14 @@ const CapabilityCard = (
     
 
     return (
-        <div onClick={() => setShowModal(!showModal)} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)} className='cursor-pointer w-[450px] h-[380px] text-center border rounded-md flex flex-col gap-4 relative group'>
+        <div onClick={() => setShowModal(!showModal)} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)} className='cursor-pointer w-full sm:w-[450px] h-[350px] sm:h-[380px] text-center border rounded-md flex flex-col gap-4 relative group'>
             <div className="w-full h-full absolute top-0 left-0 conic"></div>
-            <div className='w-full h-2/3'>
+            <div className='w-full sm:h-2/3'>
                 <img
                     src={active ? gif: still}
                 />
             </div>
-            <div className='flex flex-col gap-2 px-12'>
+            <div className='flex flex-col gap-2 px-6 sm:px-12'>
                 <h2 className='text-xl font-semibold'>{header}</h2>
                 <p className='text-sm font-normal leading normal'>
                 {description}

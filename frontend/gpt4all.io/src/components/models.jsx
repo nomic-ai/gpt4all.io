@@ -44,7 +44,7 @@ const ModelsTable = () =>
         <div className="flex flex-col justify-center gap-4 mx-auto">
             <h2 className="text-4xl font-bold text-center mb-2">Available models</h2>
             <Select onValueChange={onSelect}>
-                <SelectTrigger className="w-[400px] mx-auto">
+                <SelectTrigger className="w-[300px] sm:w-[400px] mx-auto">
                     <SelectValue placeholder={models[0] && models[0].filename}/>
                 </SelectTrigger>
                 <SelectContent>
@@ -59,9 +59,9 @@ const ModelsTable = () =>
                 </SelectContent>
             </Select>
             
-            <div className="w-[800px] py-4 border-t border-b border-dashed flex justify-center relative">
+            <div className="w-[600px] sm:w-[800px] py-4 border-t border-b border-dashed flex justify-center relative">
                 <div className="absolute top-0 left-0 w-[600px] border-l border-r border-dashed translate-x-24 -translate-y-4 h-72"></div>
-                <div className="w-[400px] h-56 relative p-4 rounded-md border shadow-md">
+                <div className="w-[350px] sm:w-[400px] h-64 sm:h-56 relative p-4 rounded-md border shadow-md">
                     <div className="w-full h-full rounded-md bg-white p-4 flex flex-col">
                             <div className="border-b pb-2 mb-2">
                                 <h4 className="text-xl font-bold">{selectedModel.filename}</h4>

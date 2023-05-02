@@ -7,7 +7,7 @@ import DownloadBar from './components/download_bar';
 import InstallInstructions from './components/install_instructions';
 import EcosystemItem from './components/ecosystem_item';
 import CapabilityCard from './components/capability_card';
-import PerformanceTable from './components/performance_table';
+import PerformanceTable, { PerformanceTableMobile } from './components/performance_table';
 import ModelsTable from './components/models';
 
 // TODO: media breakpoints
@@ -92,25 +92,27 @@ function App() {
            />
         </a>
       </header>
-      <main className='flex flex-col justify-center h-full items-center px-36 mt-36'>
-        <div className='flex flex-row justify-between w-full'>
-            <div className='flex flex-col w-1/2 gap-4'>
-                <h2 className='text-3xl font-bold'>
+      <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-36'>
+        <div className='flex flex-col lg:flex-row justify-center lg:justify-between w-full'>
+            <div className='flex flex-col w-full lg:w-1/2 gap-4 text-center md:text-start'>
+                <h2 className='text-xl md:text-3xl font-bold'>
                     GPT4All
                 </h2>
-                <p className='text-5xl leading-normal pr-12'>
+                <p className='text-3xl md:text-5xl leading-normal lg:pr-12'>
                 A free-to-use, locally running, privacy-aware chatbot that runs on your laptop. <strong>No GPU required.</strong>
                 </p>
 
             </div>
 
-            <div className='w-1/2 lg:pl-24'>
-                <div className='w-full relative'>
+            <div className='w-full lg:w-1/2 lg:pl-24 mt-8 lg:mt-0'>
+                <div>
+                    <p>
                     <img
                         src={process.env.PUBLIC_URL + "/landing.gif"}
-                        className='rounded-md h-full'
+                        className='rounded-md h-full mx-auto lg:mx-none'
                     />
-                    <span className='absolute bottom-0 left-4 text-xs text-slate-400 lg:translate-y-4'>Running on M1 Mac (normal speed)</span>
+                    </p>
+                    <p className='text-xs text-slate-400 mt-2'>Running on M1 Mac (normal speed)</p>
                 </div>
             </div>
         </div>
@@ -137,12 +139,12 @@ function App() {
             <h2 className='text-4xl font-bold text-center mt-8'>
                     GPT4All's Capabilities
             </h2>
-            <span className='text-lg text-slate-500 text-center mt-2'>Explore what GPT4All can do. On your machine.</span>
+            <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your machine.</span>
         </div>
 
       </main>
-      <div className='w-full px-36 mt-8 flex justify-center'>
-            <div className='grid grid-cols-2 gap-6'>
+      <div className='w-full px-8 md:px-36 mt-8 flex justify-center'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                     <CapabilityCard
                         header="Answer question about the world"
                         description="Ask GPT4All about anything on your mind. A conversational way to learn new concepts."
@@ -173,7 +175,7 @@ function App() {
             </div>
 
         </div>
-        <div className='w-full flex flex-col px-36 mt-24'>
+        <div className='w-full flex flex-col px-4 sm:px-8 md:px-36 mt-24'>
             <h2 className='text-4xl font-bold text-center'>
                     Install Instructions
             </h2>
@@ -182,13 +184,18 @@ function App() {
             </div>
         </div>
         
-        <div className='w-full flex flex-col justify-center gap-8 px-36 mt-14'>
-            <h2 className='text-4xl font-bold text-center'>Model Performance</h2>
+        <div className='hidden sm:block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
+            <h2 className='text-4xl font-bold text-center mb-4'>Model Performance</h2>
             <PerformanceTable/>
         </div>
 
+        <div className='sm:hidden block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
+            <h2 className='text-4xl font-bold text-center'>Model Performance</h2>
+            <PerformanceTableMobile/>
+        </div>
+
         
-        <div className='flex flex-col w-full text-center gap-4'>
+        <div className='flex flex-col w-full text-center gap-4 sm:px-0 px-4'>
             <h2 className='text-4xl font-semibold mt-24'>
                 GPT4All Ecosystem
             </h2>
@@ -196,7 +203,7 @@ function App() {
 
         </div>
         <div className={`w-full flex justify-center ${showMore ? "h-full": "max-h-[300px]"} mt-12`}>
-            <div className='grid grid-cols-3 px-36 relative gap-4 mx-auto h-full overflow-hidden'>
+            <div className='grid grid-cols-1 sm:grid-cols-3 px-4 sm:px-8 md:px-36 relative gap-4 mx-auto h-full overflow-hidden'>
                 {
                     ecosystem_links.map((obj, idx) =>
                         <EcosystemItem
@@ -217,13 +224,13 @@ function App() {
                 </div>
             </div>
         </div>
-        <div className='w-full px-36 flex flex-col justify-center items-center mt-14 gap-8'>
+        <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>How GPT4All Works</h2>
-            <p className='leading-normal w-2/3 mx-auto'>
+            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
             </p>
         </div>
-        <div className='w-full px-36 flex justify-center items-center mt-14'>
+        <div className='w-full px-4 sm:px-8 md:px-36 flex justify-center items-center mt-14'>
             <ModelsTable/>
         </div>
         <div className='h-48 mt-24 w-screen'></div>

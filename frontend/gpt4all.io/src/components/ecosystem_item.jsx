@@ -10,7 +10,7 @@ const EcosystemItem = (
 ) => 
 {
     return (
-        <div className="w-[300px] h-24 rounded-md bg-slate-50 p-4 flex flex-col">
+        <div className="w-[200px] lg:w-[300px] h-24 rounded-md bg-slate-50 p-4 flex flex-col">
             <div className="flex flex-row gap-2">
                 <img
                     src={icon}

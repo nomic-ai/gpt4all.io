@@ -68,13 +68,13 @@ function App() {
            />
         </a>
       </header>
-      <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-36'>
-        <div className='flex flex-col lg:flex-row justify-center lg:justify-between w-full'>
+      <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-[8rem] xl:mt-24'>
+        <div className='2md:mt-0 flex flex-col lg:flex-row justify-center lg:justify-between w-full'>
             <div className='flex flex-col w-full lg:w-1/2 gap-4 text-center md:text-start'>
-                <h2 className='text-xl md:text-3xl font-bold'>
+                <h2 className='text-xl md:text-3xl font-bold text-center 2md:text-start'>
                     GPT4All
                 </h2>
-                <p className='text-3xl md:text-5xl leading-normal lg:pr-12'>
+                <p className='text-3xl xl:text-5xl leading-normal lg:pr-12 text-center 2md:text-start'>
                 A free-to-use, locally running, privacy-aware chatbot. <strong>No GPU or internet required.</strong>
                 </p>
 
@@ -85,10 +85,10 @@ function App() {
                     <p>
                     <img
                         src={process.env.PUBLIC_URL + "/landing.gif"}
-                        className='rounded-md h-full mx-auto lg:mx-none'
+                        className='rounded-md w-full mx-auto lg:mx-none'
                     />
                     </p>
-                    <p className='text-xs text-slate-400 mt-2 ml-12'>Real-time inference latency on an M1 Mac</p>
+                    <p className='text-xs text-slate-400 mt-2 xl:ml-12'>Real-time inference latency on an M1 Mac</p>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@ function App() {
         <div className='flex flex-col gap-4 mt-24 w-full items-center'>
             <h4 className='font-semibold text-zinc-500/50 text-lg'>Download Desktop Chat Client</h4>
             
-            <div className='flex flex-row justify-center gap-24 mt-4'>
+            <div className='hidden md:flex flex-row justify-center gap-8 lg:gap-24 mt-4'>
                 {installers.map((obj, idx) =>
                     <DownloadBar
                         key={idx}
@@ -107,9 +107,22 @@ function App() {
                     />
                 )}
             </div>
+            <div className='flex md:hidden justify-center items-center'>
+                    <h2 className='text-xl text-center'>Please view on Desktop to download</h2>
+            </div>
         </div>
 
-        <div className='w-full items-center flex flex-col justify-center mb-24'>
+        {/* <div className='w-full items-center flex flex-col justify-center mb-24'>
+
+            <Vertical/>
+            <h2 className='text-4xl font-bold text-center mt-8'>
+                    GPT4All's Capabilities
+            </h2>
+            <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your own hardware.</span>
+        </div> */}
+
+      </main>
+      <div className='w-full items-center flex flex-col justify-center my-14'>
 
             <Vertical/>
             <h2 className='text-4xl font-bold text-center mt-8'>
@@ -117,8 +130,6 @@ function App() {
             </h2>
             <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your own hardware.</span>
         </div>
-
-      </main>
       <div className='w-full px-8 md:px-36 mt-8 flex justify-center'>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                     <CapabilityCard
@@ -160,7 +171,7 @@ function App() {
             </div>
         </div>
         
-        <div className='hidden sm:block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
+        <div className='hidden lg:block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
             <h2 className='text-4xl font-bold text-center mb-4'>Performance Benchmarks</h2>
             <PerformanceTable/>
         </div>
@@ -179,7 +190,7 @@ function App() {
 
         </div>
         <div className={`w-full flex justify-center ${showMore ? "h-full": "max-h-[300px]"} mt-12`}>
-            <div className='grid grid-cols-1 sm:grid-cols-3 px-4 sm:px-8 md:px-36 relative gap-4 mx-auto h-full overflow-hidden'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 px-4 sm:px-8 md:px-36 relative gap-4 mx-auto h-full overflow-hidden'>
                 {
                     ecosystem_links.map((obj, idx) =>
                         <EcosystemItem
@@ -251,8 +262,9 @@ function App() {
             <p>
                 Explore a recent snapshot of the GPT4All Datalake in Atlas below.
             </p>
-            <iframe src="https://atlas.nomic.ai/map/gpt4all-datalake" width="100%" height="1000px">
+            <iframe className='hidden lg:block' src="https://atlas.nomic.ai/map/gpt4all-datalake" width="100%" height="1000px">
             </iframe>
+            <span className='text-lg text-slate-400 block lg:hidden'>Atlas Map must be viewed on a larger display</span>
 
         </div>
         <div className='h-48 mt-24 w-screen'></div>

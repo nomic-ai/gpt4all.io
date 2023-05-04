@@ -17,7 +17,7 @@ const InstallInstructions = () => {
       </TabsList>
 
       <TabsContent value="windows">
-        <div className="mx-auto w-full lg:w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
+        <div className="mx-auto w-full xl:w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
           <h2 className="text-xl font-semibold">
             Windows Installer
           </h2>
@@ -29,7 +29,7 @@ const InstallInstructions = () => {
         </div>
       </TabsContent>
       <TabsContent value="macos">
-        <div className="mx-auto w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
+        <div className="mx-auto w-full xl:w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
           <h2 className="text-xl font-semibold">
             MacOS Installer
           </h2>
@@ -43,7 +43,7 @@ const InstallInstructions = () => {
         </div>
       </TabsContent>
       <TabsContent value="ubuntu">
-        <div className="mx-auto w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
+        <div className="mx-auto w-full xl:w-[900px] rounded-md bg-slate-50/50 p-6 flex flex-col">
           <h2 className="text-xl font-semibold">
             Ubuntu Installer
           </h2>

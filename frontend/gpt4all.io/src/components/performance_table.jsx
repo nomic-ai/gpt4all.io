@@ -26,7 +26,7 @@ const PerformanceTable = (
 ) =>
 {
     return (
-        <table className="border w-full lg:w-[800px] table-auto sm:mx-auto">
+        <table className="border w-full xl:w-[800px] table-auto sm:mx-auto">
             <thead>
                 <tr className="h-10 bg-black text-white">
                     {

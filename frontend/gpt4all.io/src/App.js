@@ -142,29 +142,29 @@ function App() {
                     <CapabilityCard
                         header="Answer questions about the world"
                         description="Ask GPT4All about anything."
-                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
-                        still={process.env.PUBLIC_URL+"/code_still.png"}
+                        gif={process.env.PUBLIC_URL+"/roman_gpt4all.gif"}
+                        still={process.env.PUBLIC_URL+"/roman_gpt4all_still.png"}
                     />
 
                     <CapabilityCard
                         header="Personal writing assistant"
                         description="Write emails, documents, creative stories, poems, songs and plays."
-                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
-                        still={process.env.PUBLIC_URL+"/code_still.png"}
+                        gif={process.env.PUBLIC_URL+"/robot_poem_gpt4all.gif"}
+                        still={process.env.PUBLIC_URL+"/robot_poem_gpt4all_still.png"}
                     />
 
                     <CapabilityCard
                         header="Understand documents"
                         description="Provide your own text documents and receive summaries and answers about their contents."
-                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
-                        still={process.env.PUBLIC_URL+"/code_still.png"}
+                        gif={process.env.PUBLIC_URL+"/baroque_gpt4all.gif"}
+                        still={process.env.PUBLIC_URL+"/baroque_gpt4all_still.png"}
                     />
 
                     <CapabilityCard
                         header="Write code"
                         description="Get guidance on easy coding tasks. Code capabilities are under improvement."
-                        gif={process.env.PUBLIC_URL+"/code_example.gif"}
-                        still={process.env.PUBLIC_URL+"/code_still.png"}
+                        gif={process.env.PUBLIC_URL+"/web_request_gpt4all.gif"}
+                        still={process.env.PUBLIC_URL+"/web_request_gpt4all_still.png"}
                     />
             </div>
 

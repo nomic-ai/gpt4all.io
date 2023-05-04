@@ -80,7 +80,7 @@ function App() {
 
             </div>
 
-            <div className='w-full lg:w-1/2 lg:pl-24 mt-8 lg:mt-0'>
+            <div className='w-full lg:w-1/2 xl:pl-24 mt-8 lg:mt-0'>
                 <div>
                     <p>
                     <img

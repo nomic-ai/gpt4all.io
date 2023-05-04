@@ -46,11 +46,11 @@ const DownloadBar = (
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-48 border-none bg-[#0f172a]">
                     <DropdownMenuGroup>
-                        <DropdownMenuItem className="cursor-pointer my-1 hover:bg-slate-800">
+                        <DropdownMenuItem onClickclassName="cursor-pointer my-1 hover:bg-slate-800">
                             <a href={linkMain} className="font-semibold text-white">{osName} Installer</a>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="cursor-pointer my-1 hover:bg-slate-800">
-                            <a href={linkAlt} className="font-semibold text-white">{osName} AVX Only</a>
+                            <a href="{linkAlt}" className="font-semibold text-white">{osName} AVX Only</a>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
             </DropdownMenuContent>

@@ -39,13 +39,19 @@ const ecosystem_links = [
 // Update installers here
 const installers = [
     {
-        osName: "Windows", link: "#"
+        osName: "Windows",
+        linkMain: "https://gpt4all.io/installers/gpt4all-installer-win64.exe",
+        linkAlt: 'https://gpt4all.io/installers/gpt4all-installer-win64-avx-only.exe'
     },
     {
-        osName: "OSX", link: "#"
+        osName: "OSX",
+        linkMain: "https://gpt4all.io/installers/gpt4all-installer-darwin.dmg",
+        linkAlt: 'https://gpt4all.io/installers/gpt4all-installer-darwin-avx-only.dmg'
     },
     {
-        osName: "Ubuntu", link: "#"
+        osName: "Ubuntu",
+        linkMain: "https://gpt4all.io/installers/gpt4all-installer-linux.run",
+        linkAlt: 'https://gpt4all.io/installers/gpt4all-installer-linux-avx-only.run'
     }
 ];
 
@@ -103,7 +109,8 @@ function App() {
                     <DownloadBar
                         key={idx}
                         osName={obj.osName}
-                        link={obj.link}
+                        linkMain={obj.linkMain}
+                        linkAlt={obj.linkAlt}
                     />
                 )}
             </div>

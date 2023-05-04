@@ -88,7 +88,7 @@ function App() {
                         className='rounded-md w-full mx-auto lg:mx-none'
                     />
                     </p>
-                    <p className='text-xs text-slate-400 mt-2 xl:ml-12'>Real-time inference latency on an M1 Mac</p>
+                    <p className='text-xs text-slate-400 mt-2'>Real-time inference latency on an M1 Mac</p>
                 </div>
             </div>
         </div>

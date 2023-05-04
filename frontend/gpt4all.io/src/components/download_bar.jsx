@@ -20,8 +20,6 @@ const DownloadBar = (
 ) => {
     
     return (
-
-        // <a href={link}>
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <Button className="w-48 text-md font-semibold">
@@ -57,7 +55,6 @@ const DownloadBar = (
                     </DropdownMenuGroup>
             </DropdownMenuContent>
         </DropdownMenu>
-        // </a>
     )
 };
 

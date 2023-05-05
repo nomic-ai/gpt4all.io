@@ -63,10 +63,6 @@ function App() {
     return (
     <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden relative'>
       <header className='z-20 fixed w-full h-14 p-6 flex flex-row gap-8 items-center bg-slate-50/50'>
-        <meta name="twitter:card" content="summary" />
-        <meta property="og:title" content="GPT4All"></meta>
-        <meta property="og:description" content="Free, local and privacy-aware chatbots"></meta>
-        <meta property="og:image" content={process.env.PUBLIC_URL + "/gpt4all-128.png"}></meta>
         <img
             alt="gpt4all logo"
             src={process.env.PUBLIC_URL + "/gpt4all-128.png"}

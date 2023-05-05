@@ -12,14 +12,19 @@ const data = {
     "WinoGrande": [64.7, 63.6, 63.8, 63.5, 63.5, 67.8, 71.3, 63.9, 62.2, 66.1, 68.8, 64.1, 66.9, 70.1, 61.1, 63.8, 61.8, 67.3, 66.7, 70.9, 54.8, 50.1, 68.8, 65.0, 75.8],
     "ARC-e": [54.9, 55.4, 56.6, 57.7, 56.4, 51.1, 60.9, 62.9, 64.6, 59.8, 56.6, 62.2, 52.5, 60.0, 61.3, 63.9, 49.3, 53.5, 57.4, 61.0, 52.4, 44.9, 54.3, 64.2, 83.9],
     "ARC-c": [36.0, 34.9, 35.3, 35.0, 35.7, 40.4, 44.2, 38.7, 38.5, 43.3, 43.9, 36.6, 41.4, 44.6, 35.2, 34.8, 33.3, 41.2, 42.7, 43.5, 31.1, 27.0, 41.0, 40.4, 63.9],
-    "OBQA": [40.2, 38.4, 41.0, 38.8, 40.2, 40.2, 43.4, 41.2, 40.4, 43.4, 42.6, 38.2, 42.4, 42.2, 37.2, 38.0, 39.4, 40.8, 43.6, 44.4, 33.4, 32.0, 42.8, 43.2, 51.0]
+    "OBQA": [40.2, 38.4, 41.0, 38.8, 40.2, 40.2, 43.4, 41.2, 40.4, 43.4, 42.6, 38.2, 42.4, 42.2, 37.2, 38.0, 39.4, 40.8, 43.6, 44.4, 33.4, 32.0, 42.8, 43.2, 51.0],
+    "average": []
 }
 
 const avg = array => (array.reduce((a, b) => a + b) / array.length);
 
-const avgCol = data.Model.map((_, idx) => avg([data.BoolQ[idx], data.PIQA[idx], data.HellaSwag[idx]], data.WinoGrande[idx], data["ARC-e"][idx], data["ARC-c"][idx], data.OBQA[idx]));
-
-
+for (let i = 0; i < data.Model.length; i++) {
+    let total = 0;
+    for (let j = 1; j < cols.length - 1; j++) {
+        total += data[cols[j]][i];
+    }
+    data.average.push(total / (cols.length - 2));
+}
 
 const PerformanceTable = (
 
@@ -50,7 +55,7 @@ const PerformanceTable = (
                             <td className={`${(data["ARC-e"][idx] === Math.max(...data["ARC-e"].slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data["ARC-e"][idx]}</td>
                             <td className={`${(data["ARC-c"][idx] === Math.max(...data["ARC-c"].slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data["ARC-c"][idx]}</td>
                             <td className={`${(data.OBQA[idx] === Math.max(...data.OBQA.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.OBQA[idx]}</td>
-                            <td className={`${(avgCol[idx] === Math.max(...avgCol.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
+                            <td className={`${(data.average[idx] === Math.max(...data.average.slice(0, -1)) || fidx === data.average.length - 1) && "font-bold"}`}>{data.average[idx].toFixed(1)}</td>
                         </tr>
                     )
                 }
@@ -102,7 +107,7 @@ const PerformanceTableMobile = (
                         </tr>
                         <tr className="border-b- h-9">
                             <td>Avg</td>
-                            <td className={`${avgCol[idx] === Math.max(...avgCol) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
+                            <td className={`${data.average[idx] === Math.max(...data.average) && "font-bold"}`}>{data.average[idx].toFixed(1)}</td>
                         </tr>
                     </table>
 

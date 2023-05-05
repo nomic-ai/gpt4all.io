@@ -17,7 +17,7 @@ const CapabilityCard = (
             className='cursor-pointer w-full sm:w-[350px] xl:w-[450px] text-center border rounded-md 
                    flex flex-col gap-4 relative group'>
             <div className="w-full h-full absolute top-0 left-0 conic"></div>
-            <div className='w-full h-[60%] relative'>
+            <div className='w-full h-[60%] xl-h-[66%] relative'>
                 <img
                     alt={alt || ''}
                     src={active ? gif : still}

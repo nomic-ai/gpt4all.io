@@ -63,16 +63,29 @@ function App() {
     return (
     <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden relative'>
       <header className='z-20 fixed w-full h-14 p-6 flex flex-row gap-8 items-center bg-slate-50/50'>
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="og:description" conent="GPT4All: Free, local and privacy-aware chatbots"></meta>
+        <meta name="og:img" content={process.env.PUBLIC_URL + "/github-mark.svg"}></meta>
         <img
+            alt="gpt4all logo"
             src={process.env.PUBLIC_URL + "/gpt4all-128.png"}
             className='w-8 h-8'
         />
         <a href='https://github.com/nomic-ai/gpt4all'>
            <img
+           alt="github logo"
             src={process.env.PUBLIC_URL + "/github-mark.svg"}
             className='w-8 h-8'
            />
         </a>
+        <a href='https://discord.gg/mGZE39AS3e'>
+           <img
+           alt="Discord link"
+            src={process.env.PUBLIC_URL + "/discord-mark-black.svg"}
+            className='w-8 h-8'
+           />
+        </a>
+        <title>GPT4All</title>
       </header>
       <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-[8rem] xl:mt-24'>
         <div className='2md:mt-0 flex flex-col lg:flex-row justify-center lg:justify-between w-full'>

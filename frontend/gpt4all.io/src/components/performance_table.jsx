@@ -15,22 +15,22 @@ const data = {
     "OBQA": [40.2, 38.4, 41.0, 38.8, 40.2, 40.2, 43.4, 41.2, 40.4, 43.4, 42.6, 38.2, 42.4, 42.2, 37.2, 38.0, 39.4, 40.8, 43.6, 44.4, 33.4, 32.0, 42.8, 43.2, 51.0]
 }
 
-const avg = array => (array.reduce((a,b) => a+b) / array.length);
+const avg = array => (array.reduce((a, b) => a + b) / array.length);
 
-const avgCol =  data.Model.map((_, idx) => avg([data.BoolQ[idx], data.PIQA[idx], data.HellaSwag[idx]], data.WinoGrande[idx], data["ARC-e"][idx], data["ARC-c"][idx], data.OBQA[idx]));
+const avgCol = data.Model.map((_, idx) => avg([data.BoolQ[idx], data.PIQA[idx], data.HellaSwag[idx]], data.WinoGrande[idx], data["ARC-e"][idx], data["ARC-c"][idx], data.OBQA[idx]));
 
 
 
 const PerformanceTable = (
 
-) =>
-{
+) => {
+    const fidx = -1;
     return (
         <table className="border w-full xl:w-[800px] table-auto sm:mx-auto">
             <thead>
                 <tr className="h-10 bg-black text-white">
                     {
-                        cols.map((col, idx) => 
+                        cols.map((col, idx) =>
                             <th key={idx}>
                                 {col}
                             </th>
@@ -41,16 +41,16 @@ const PerformanceTable = (
             <tbody>
                 {
                     data.Model.map((model, idx) =>
-                        <tr className={`text-center border-b h-9 ${model === "GPT4All 13B Snoozy"? "bg-slate-200": ""}`}>
+                        <tr className={`text-center border-b h-9 ${model === "GPT4All 13B Snoozy" ? "bg-slate-200" : model === "text-davinci-003" ? "border-gray-300 border-t-4" : ""}`}>
                             <td className="border-r">{model}</td>
-                            <td className={`${data.BoolQ[idx] === Math.max(...data.BoolQ) && "font-bold"}`}>{data.BoolQ[idx]}</td>
-                            <td className={`${data.PIQA[idx] === Math.max(...data.PIQA) && "font-bold"}`}>{data.PIQA[idx]}</td>
-                            <td className={`${data.HellaSwag[idx] === Math.max(...data.HellaSwag) && "font-bold"}`}>{data.HellaSwag[idx]}</td>
-                            <td className={`${data.WinoGrande[idx] === Math.max(...data.WinoGrande) && "font-bold"}`}>{data.WinoGrande[idx]}</td>
-                            <td className={`${data["ARC-e"][idx] === Math.max(...data["ARC-e"]) && "font-bold"}`}>{data["ARC-e"][idx]}</td>
-                            <td className={`${data["ARC-c"][idx] === Math.max(...data["ARC-c"]) && "font-bold"}`}>{data["ARC-c"][idx]}</td>
-                            <td className={`${data.OBQA[idx] === Math.max(...data.OBQA) && "font-bold"}`}>{data.OBQA[idx]}</td>
-                            <td className={`${avgCol[idx] === Math.max(...avgCol) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
+                            <td className={`${(data.BoolQ[idx] === Math.max(...data.BoolQ.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.BoolQ[idx]}</td>
+                            <td className={`${(data.PIQA[idx] === Math.max(...data.PIQA.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.PIQA[idx]}</td>
+                            <td className={`${(data.HellaSwag[idx] === Math.max(...data.HellaSwag.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.HellaSwag[idx]}</td>
+                            <td className={`${(data.WinoGrande[idx] === Math.max(...data.WinoGrande.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.WinoGrande[idx]}</td>
+                            <td className={`${(data["ARC-e"][idx] === Math.max(...data["ARC-e"].slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data["ARC-e"][idx]}</td>
+                            <td className={`${(data["ARC-c"][idx] === Math.max(...data["ARC-c"].slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data["ARC-c"][idx]}</td>
+                            <td className={`${(data.OBQA[idx] === Math.max(...data.OBQA.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{data.OBQA[idx]}</td>
+                            <td className={`${(avgCol[idx] === Math.max(...avgCol.slice(0, -1)) || fidx === data.BoolQ.length - 1) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
                         </tr>
                     )
                 }
@@ -62,57 +62,56 @@ const PerformanceTable = (
 
 const PerformanceTableMobile = (
 
-) =>
-{
+) => {
     return (
         <div className="w-full">
             {
                 data.Model.map((model, idx) =>
-                <table className="mb-4 w-full table-auto border text-center">
-                    <tr className="border-b h-9 bg-zinc-100">
-                        <td>Model</td>
-                        <td className={`${model === "GPT4All LLaMa 13B" && "font-bold"}`}>{model}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>BoolQ</td>
-                        <td className={`${data.BoolQ[idx] === Math.max(...data.BoolQ) && "font-bold"}`}>{data.BoolQ[idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>PIQA</td>
-                        <td className={`${data.PIQA[idx] === Math.max(...data.PIQA) && "font-bold"}`}>{data.PIQA[idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>HellaSwag</td>
-                        <td className={`${data.HellaSwag[idx] === Math.max(...data.HellaSwag) && "font-bold"}`}>{data.HellaSwag[idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>WinoGrade</td>
-                        <td className={`${data.WinoGrande[idx] === Math.max(...data.WinoGrande) && "font-bold"}`}>{data.WinoGrande[idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>ARC-e</td>
-                        <td className={`${data["ARC-e"][idx] === Math.max(...data["ARC-e"]) && "font-bold"}`}>{data["ARC-e"][idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>ARC-c</td>
-                        <td className={`${data["ARC-c"][idx] === Math.max(...data["ARC-c"]) && "font-bold"}`}>{data["ARC-c"][idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>OBQA</td>
-                        <td className={`${data.OBQA[idx] === Math.max(...data.OBQA) && "font-bold"}`}>{data.OBQA[idx]}</td>
-                    </tr>
-                    <tr className="border-b- h-9">
-                        <td>Avg</td>
-                        <td className={`${avgCol[idx] === Math.max(...avgCol) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
-                    </tr>
-                </table>
-                
+                    <table className="mb-4 w-full table-auto border text-center">
+                        <tr className="border-b h-9 bg-zinc-100">
+                            <td>Model</td>
+                            <td className={`${model === "GPT4All LLaMa 13B" && "font-bold"}`}>{model}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>BoolQ</td>
+                            <td className={`${data.BoolQ[idx] === Math.max(...data.BoolQ) && "font-bold"}`}>{data.BoolQ[idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>PIQA</td>
+                            <td className={`${data.PIQA[idx] === Math.max(...data.PIQA) && "font-bold"}`}>{data.PIQA[idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>HellaSwag</td>
+                            <td className={`${data.HellaSwag[idx] === Math.max(...data.HellaSwag) && "font-bold"}`}>{data.HellaSwag[idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>WinoGrade</td>
+                            <td className={`${data.WinoGrande[idx] === Math.max(...data.WinoGrande) && "font-bold"}`}>{data.WinoGrande[idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>ARC-e</td>
+                            <td className={`${data["ARC-e"][idx] === Math.max(...data["ARC-e"]) && "font-bold"}`}>{data["ARC-e"][idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>ARC-c</td>
+                            <td className={`${data["ARC-c"][idx] === Math.max(...data["ARC-c"]) && "font-bold"}`}>{data["ARC-c"][idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>OBQA</td>
+                            <td className={`${data.OBQA[idx] === Math.max(...data.OBQA) && "font-bold"}`}>{data.OBQA[idx]}</td>
+                        </tr>
+                        <tr className="border-b- h-9">
+                            <td>Avg</td>
+                            <td className={`${avgCol[idx] === Math.max(...avgCol) && "font-bold"}`}>{avgCol[idx].toFixed(1)}</td>
+                        </tr>
+                    </table>
+
                 )
             }
         </div>
     )
 }
 
-export {PerformanceTableMobile};
+export { PerformanceTableMobile };
 
 export default PerformanceTable;

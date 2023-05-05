@@ -21,7 +21,7 @@ const CapabilityCard = (
                 <img
                     alt={alt || ''}
                     src={active ? gif : still}
-                    className="object-cover w-full h-full"
+                    className="w-full h-full"
                 />
             </div>
             <div className='flex flex-col gap-2 px-6 sm:px-12 my-auto'>

@@ -5,7 +5,7 @@ const cols = [
 ];
 
 const data = {
-    "Model": ["GPT4All-J 6B v1.0", "GPT4All-J v1.1-breezy", "GPT4All-J v1.2-jazzy", "GPT4All-J v1.3-groovy", "GPT4All-J Lora 6B", "GPT4All LLaMa Lora 7B", "GPT4All 13B snoozy", "Dolly 6B", "Dolly 12B", "Alpaca 7B", "Alpaca Lora 7B", "GPT-J 6.7B", "LLaMa 7B", "LLama 13B", "Pythia 6.7B", "Pythia 12B", "Fastchat T5", "Fastchat Vicu\u00f1a 7B", "Fastchat Vicu\u00f1a 13B", "Stable Vicu\u00f1a RLHF", "StableLM Tuned", "StableLM Base", "Koala 13B", "Open Assistant Pythia 12B", "text-davinci-003"],
+    "Model": ["GPT4All-J 6B v1.0", "GPT4All-J v1.1-breezy", "GPT4All-J v1.2-jazzy", "GPT4All-J v1.3-groovy", "GPT4All-J Lora 6B", "GPT4All LLaMa Lora 7B", "GPT4All 13B Snoozy", "Dolly 6B", "Dolly 12B", "Alpaca 7B", "Alpaca Lora 7B", "GPT-J 6.7B", "LLaMa 7B", "LLama 13B", "Pythia 6.7B", "Pythia 12B", "Fastchat T5", "Fastchat Vicu\u00f1a 7B", "Fastchat Vicu\u00f1a 13B", "Stable Vicu\u00f1a RLHF", "StableLM Tuned", "StableLM Base", "Koala 13B", "Open Assistant Pythia 12B", "text-davinci-003"],
     "BoolQ": [73.4, 74.0, 74.8, 73.6, 68.6, 73.1, 83.3, 68.8, 56.7, 73.9, 74.3, 65.4, 73.1, 68.5, 63.5, 67.7, 81.5, 76.6, 81.5, 82.3, 62.5, 60.1, 76.5, 67.9, 88.1],
     "PIQA": [74.8, 75.1, 74.9, 74.3, 75.8, 77.6, 79.2, 77.3, 75.4, 77.2, 79.3, 76.2, 77.4, 79.1, 76.3, 76.6, 64.6, 77.2, 76.8, 78.6, 71.2, 67.4, 77.9, 78.0, 83.8],
     "HellaSwag": [63.4, 63.2, 63.6, 63.8, 66.2, 72.1, 75.0, 67.6, 71.0, 73.9, 74.0, 66.2, 73.0, 76.2, 64.0, 67.3, 46.3, 70.7, 73.3, 74.1, 53.6, 41.2, 72.6, 68.1, 83.4],
@@ -41,7 +41,7 @@ const PerformanceTable = (
             <tbody>
                 {
                     data.Model.map((model, idx) =>
-                        <tr className={`text-center border-b h-9 ${model === "GPT4All-L Snoozy 13B"? "bg-slate-200": ""}`}>
+                        <tr className={`text-center border-b h-9 ${model === "GPT4All 13B Snoozy"? "bg-slate-200": ""}`}>
                             <td className="border-r">{model}</td>
                             <td className={`${data.BoolQ[idx] === Math.max(...data.BoolQ) && "font-bold"}`}>{data.BoolQ[idx]}</td>
                             <td className={`${data.PIQA[idx] === Math.max(...data.PIQA) && "font-bold"}`}>{data.PIQA[idx]}</td>

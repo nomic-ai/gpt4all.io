@@ -18,7 +18,7 @@ const ecosystem_links = [
         icon: "/github-mark.svg",
         url: "https://github.com/nomic-ai/gpt4all",
         title: "GPT4All Training",
-        description: "Train your own GPT4All models."
+        description: "Train your own GPT4All models.",
     },
     {
         icon: "/github-mark.svg",
@@ -157,6 +157,7 @@ function App() {
                         description="Ask GPT4All about anything."
                         gif={process.env.PUBLIC_URL+"/roman_gpt4all.gif"}
                         still={process.env.PUBLIC_URL+"/roman_gpt4all_still.png"}
+                        alt="GPT4all describing the collapse of the Roman Empire"
                     />
 
                     <CapabilityCard
@@ -164,6 +165,7 @@ function App() {
                         description="Write emails, documents, creative stories, poems, songs and plays."
                         gif={process.env.PUBLIC_URL+"/robot_poem_gpt4all.gif"}
                         still={process.env.PUBLIC_URL+"/robot_poem_gpt4all_still.png"}
+                        alt="GPT4all writing a poem."
                     />
 
                     <CapabilityCard
@@ -171,6 +173,7 @@ function App() {
                         description="Provide your own text documents and receive summaries and answers about their contents."
                         gif={process.env.PUBLIC_URL+"/baroque_gpt4all.gif"}
                         still={process.env.PUBLIC_URL+"/baroque_gpt4all_still.png"}
+                        alt="GIF of GPT4all summarizing a paragraph from Wikipedia."
                     />
 
                     <CapabilityCard
@@ -178,6 +181,7 @@ function App() {
                         description="Get guidance on easy coding tasks. Code capabilities are under improvement."
                         gif={process.env.PUBLIC_URL+"/web_request_gpt4all.gif"}
                         still={process.env.PUBLIC_URL+"/web_request_gpt4all_still.png"}
+                        alt="GPT4all writing Python code."
                     />
             </div>
 

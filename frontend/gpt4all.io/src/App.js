@@ -28,7 +28,7 @@ const ecosystem_links = [
     },
     {
         icon: "/github-mark.svg",
-        url: "https://github.com/nomic-ai/pygpt4all",
+        url: "https://docs.gpt4all.io",
         title: "Python Bindings",
         description: "Integrate a locally running LLM in any Python environment."
     }

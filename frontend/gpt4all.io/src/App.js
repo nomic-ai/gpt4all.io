@@ -22,18 +22,28 @@ const ecosystem_links = [
     },
     {
         icon: "/github-mark.svg",
-        url: "https://github.com/nomic-ai/gpt4all",
+        url: "https://docs.gpt4all.io",
+        title: "GPT4All Documentation",
+        description: "Integrate a locally running LLM into any codebase."
+    },
+    {
+        icon: "/github-mark.svg",
+        url: "https://github.com/nomic-ai/gpt4all/tree/main/gpt4all-chat",
         title: "GPT4All Chat",
         description: "A multi-platform chat interface for running local LLMs"
     },
     {
         icon: "/github-mark.svg",
-        url: "https://docs.gpt4all.io",
-        title: "Python Bindings",
-        description: "Integrate a locally running LLM in any Python environment."
+        url: "https://github.com/nomic-ai/gpt4all/tree/main/gpt4all-bindings/python",
+        title: "GPT4All in Python",
+        description: "Python Bindings to GPT4All"
+    },
+    {
+        icon: "/github-mark.svg",
+        url: "https://github.com/nomic-ai/gpt4all-datalake",
+        title: "GPT4All Datalake",
+        description: "An open-source datalake for donated GPT4All interaction data."
     }
-    
-   
 ]
 
 // Update installers here

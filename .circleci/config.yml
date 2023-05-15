@@ -1,0 +1,30 @@
+version: 2.1
+executors:
+  python-node-executor:
+    docker:
+      - image: circleci/python:3.9
+      - image: circleci/node:14
+
+jobs:
+  auto-deploy-site:
+    executor: python-node-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            pip install boto3
+      - run:
+          name: Build site
+          command: |
+            npm --prefix ./frontend/gpt4all.io install && CI=false DISABLE_ESLINT_PLUGIN=true npm --prefix ./frontend/gpt4all.io run build
+      - run:
+          name: Run script
+          command: |
+            python s3_upload.py ./frontend/gpt4all.io/build $AWS_ENDPOINT $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
+
+workflows:
+  version: 2
+  build-and-test-workflow:
+    jobs:
+      - build-and-test

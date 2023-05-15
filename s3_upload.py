@@ -19,11 +19,12 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
                          aws_access_key_id=aws_access_key_id,
                          aws_secret_access_key=aws_secret_access_key,
                          config=boto3.session.Config(connect_timeout=1800, read_timeout=1800))
-    print("INPUT PATHH")
-    print(input_path)
-    print(os.path.exists(input_path))
+
+    if not os.path.exists(input_path):
+        raise ValueError("Input path does not exist")
     # Check if the provided path is a file or directory
     if os.path.isfile(input_path):  # Added this condition to handle the case when the input is a single file
+        print("Uploading file")
         filename = os.path.basename(input_path)
         s3_path = os.path.join(s3_prefix, filename).replace("\\", "/")
         file_size = os.path.getsize(input_path)
@@ -33,6 +34,7 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
         elapsed_time = time.time() - start_time
         #print(f"\rUploaded {filename} ({file_size / 1024:.2f} KB) in {elapsed_time:.2f} seconds at {file_size / elapsed_time / 1024:.2f} KB/s")
     else:  # The existing code to handle the case when the input is a directory
+        print("Uploading directory")
         top_level_directory = os.path.basename(input_path)
 
         for root, dirs, files in os.walk(input_path):

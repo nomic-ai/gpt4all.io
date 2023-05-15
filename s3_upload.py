@@ -30,9 +30,9 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
         file_size = os.path.getsize(input_path)
         print(f"Uploading {input_path} to {bucket_name} at {s3_path}")
         start_time = time.time()
-        #s3_client.upload_file(input_path, bucket_name, s3_path, Config=transfer_config, Callback=lambda transferred: progress_callback(transferred, file_size, start_time))
+        s3_client.upload_file(input_path, bucket_name, s3_path, Config=transfer_config, Callback=lambda transferred: progress_callback(transferred, file_size, start_time))
         elapsed_time = time.time() - start_time
-        #print(f"\rUploaded {filename} ({file_size / 1024:.2f} KB) in {elapsed_time:.2f} seconds at {file_size / elapsed_time / 1024:.2f} KB/s")
+        print(f"\rUploaded {filename} ({file_size / 1024:.2f} KB) in {elapsed_time:.2f} seconds at {file_size / elapsed_time / 1024:.2f} KB/s")
     else:  # The existing code to handle the case when the input is a directory
         print("Uploading directory")
         top_level_directory = os.path.basename(input_path)
@@ -48,9 +48,9 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
                 file_size = os.path.getsize(local_path)
                 print(f"Uploading {local_path} to {bucket_name} at {s3_path}")
                 start_time = time.time()
-                #s3_client.upload_file(local_path, bucket_name, s3_path, Config=transfer_config, Callback=lambda transferred: progress_callback(transferred, file_size, start_time))
+                s3_client.upload_file(local_path, bucket_name, s3_path, Config=transfer_config, Callback=lambda transferred: progress_callback(transferred, file_size, start_time))
                 elapsed_time = time.time() - start_time
-                #print(f"\rUploaded {filename} ({file_size / 1024:.2f} KB) in {elapsed_time:.2f} seconds at {file_size / elapsed_time / 1024:.2f} KB/s")
+                print(f"\rUploaded {filename} ({file_size / 1024:.2f} KB) in {elapsed_time:.2f} seconds at {file_size / elapsed_time / 1024:.2f} KB/s")
 
 if __name__ == '__main__':
     import argparse

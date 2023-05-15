@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Upload to Cloudfare R2
           command: |
-            python s3_upload.py ./frontend/gpt4all.io/build $AWS_ENDPOINT $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
+            python s3_upload.py ./frontend/gpt4all.io/build $R2_ENDPOINT $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
 
 workflows:
   version: 2

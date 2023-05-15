@@ -6,7 +6,7 @@ executors:
 
 jobs:
   deploy-site:
-    executor: python-node-executor
+    executor: python-executor
     steps:
       - checkout
       - run:

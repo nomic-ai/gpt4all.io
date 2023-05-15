@@ -15,7 +15,6 @@ jobs:
             sudo apt update
             sudo apt install nodejs npm
             pip install boto3
-
       - run:
           name: Build site
           command: |

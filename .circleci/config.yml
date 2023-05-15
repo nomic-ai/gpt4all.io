@@ -29,4 +29,8 @@ workflows:
   version: 2
   deploy-gpt4all-website:
     jobs:
-      - deploy-site
+      - deploy-site:
+          filters:
+            branches:
+              only:
+                - main

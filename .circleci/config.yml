@@ -1,0 +1,35 @@
+version: 2.1
+executors:
+  python-executor:
+    docker:
+      - image: circleci/python:3.9
+
+jobs:
+  deploy-site:
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt update
+            sudo apt install nodejs npm
+            pip install boto3
+      - run:
+          name: Build site
+          command: |
+            npm --prefix ./frontend/gpt4all.io install && CI=false DISABLE_ESLINT_PLUGIN=true npm --prefix ./frontend/gpt4all.io run build
+      - run:
+          name: Upload to Cloudfare R2
+          command: |
+            python s3_upload.py ./frontend/gpt4all.io/build/ $BUCKET_NAME $R2_ENDPOINT $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
+
+workflows:
+  version: 2
+  deploy-gpt4all-website:
+    jobs:
+      - deploy-site:
+          filters:
+            branches:
+              only:
+                - main

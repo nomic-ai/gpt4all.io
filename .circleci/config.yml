@@ -6,7 +6,7 @@ executors:
       - image: circleci/node:14
 
 jobs:
-  auto-deploy-site:
+  deploy-site:
     executor: python-node-executor
     steps:
       - checkout
@@ -19,7 +19,7 @@ jobs:
           command: |
             npm --prefix ./frontend/gpt4all.io install && CI=false DISABLE_ESLINT_PLUGIN=true npm --prefix ./frontend/gpt4all.io run build
       - run:
-          name: Run script
+          name: Upload to Cloudfare R2
           command: |
             python s3_upload.py ./frontend/gpt4all.io/build $AWS_ENDPOINT $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
 
@@ -27,4 +27,4 @@ workflows:
   version: 2
   build-and-test-workflow:
     jobs:
-      - build-and-test
+      - deploy-site

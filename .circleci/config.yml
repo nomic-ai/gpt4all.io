@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Upload to Cloudfare R2
           command: |
-            python s3_upload.py ./frontend/gpt4all.io/build/ $BUCKET_NAME_TEST $R2_ENDPOINT_TEST $AWS_ACCESS_KEY $AWS_SECRET_KEY --s3-prefix /
+            python s3_upload.py ./frontend/gpt4all.io/build/ $BUCKET_NAME_TEST $R2_ENDPOINT_TEST $AWS_ACCESS_KEY $AWS_SECRET_KEY
 
 workflows:
   version: 2

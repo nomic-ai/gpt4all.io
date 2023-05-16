@@ -26,7 +26,7 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
     if os.path.isfile(input_path):  # Added this condition to handle the case when the input is a single file
         print("Uploading file")
         filename = os.path.basename(input_path)
-        s3_path = os.path.join(s3_prefix, filename).replace("\\", "/")
+        s3_path = os.path.join(s3_prefix).replace("\\", "/")
         file_size = os.path.getsize(input_path)
         print(f"Uploading {input_path} to {bucket_name} at {s3_path}")
         start_time = time.time()

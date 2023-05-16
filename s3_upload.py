@@ -42,9 +42,9 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
                 local_path = os.path.join(root, filename)
                 relative_path = os.path.relpath(local_path, input_path)
                 if s3_prefix == "":
-                    s3_path = os.path.join(top_level_directory, relative_path).replace("\\", "/")
+                    s3_path = os.path.join(relative_path).replace("\\", "/")
                 else:
-                    s3_path = os.path.join(s3_prefix, top_level_directory, relative_path).replace("\\", "/")
+                    s3_path = os.path.join(s3_prefix, relative_path).replace("\\", "/")
                 print(s3_path)
                 file_size = os.path.getsize(local_path)
                 print(f"Uploading {local_path} to {bucket_name} at {s3_path}")

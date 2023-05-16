@@ -33,4 +33,3 @@ workflows:
             branches:
               only:
                 - main
-                - circleci-bug

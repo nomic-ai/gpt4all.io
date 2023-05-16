@@ -45,7 +45,6 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
                     s3_path = os.path.join(relative_path).replace("\\", "/")
                 else:
                     s3_path = os.path.join(s3_prefix, relative_path).replace("\\", "/")
-                print(s3_path)
                 file_size = os.path.getsize(local_path)
                 print(f"Uploading {local_path} to {bucket_name} at {s3_path}")
                 start_time = time.time()
@@ -64,5 +63,4 @@ if __name__ == '__main__':
     parser.add_argument('aws_secret_access_key', type=str, help='The AWS secret access key.')
     parser.add_argument('--s3-prefix', type=str, help='The prefix to add to the S3 path (optional).', default="")
     args = parser.parse_args()
-    print(args.input_path)
     upload_directory_to_s3(args.input_path, args.bucket_name, args.endpoint_url, args.aws_access_key_id, args.aws_secret_access_key, args.s3_prefix)

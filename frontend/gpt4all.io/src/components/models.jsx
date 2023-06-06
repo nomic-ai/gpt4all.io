@@ -68,7 +68,7 @@ const ModelsTable = () =>
                             </div>
                             <p className="leading-normal">{selectedModel.description}</p>
                             <div className="w-full flex flex-row mt-4 justify-end">
-                                <a href={`https://gpt4all.io/models/${selectedModel.filename}`}>
+                                <a href={'url' in selectedModel ? `${selectedModel.url}` : `https://gpt4all.io/models/${selectedModel.filename}`}>
                                     <ArrowBigDownDash className="w-6 h-6"/>
                                 </a>
                             </div>

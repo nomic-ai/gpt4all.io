@@ -73,11 +73,13 @@ function App() {
     return (
     <div className='App font-sans w-screen h-screen flex flex-col overflow-x-hidden relative'>
       <header className='z-20 fixed w-full h-14 p-6 flex flex-row gap-8 items-center bg-slate-50/50'>
-        <img
-            alt="gpt4all logo"
-            src={process.env.PUBLIC_URL + "/gpt4all-128.png"}
+        <a href="https://home.nomic.ai/">
+            <img
+            alt="Nomic AI logo"
+            src={process.env.PUBLIC_URL + "/nomic_logo.png"}
             className='w-8 h-8'
-        />
+            />
+        </a>
         <a href='https://github.com/nomic-ai/gpt4all'>
            <img
            alt="github logo"
@@ -92,6 +94,7 @@ function App() {
             className='w-8 h-8'
            />
         </a>
+        <title>GPT4All</title>
         <title>GPT4All</title>
       </header>
       <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-[8rem] xl:mt-24'>
@@ -245,7 +248,7 @@ function App() {
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>How GPT4All Works</h2>
             <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                GTP4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
+                GPT4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
 
             </p>
             <p className='leading-normal w-full lg:w-2/3 mx-auto'>

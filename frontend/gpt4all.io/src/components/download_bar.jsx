@@ -15,13 +15,11 @@ const DownloadBar = (
     {
         osName,
         linkMain,
-        linkAlt,
     }
 ) => {
     
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+        <a href={linkMain} className="font-semibold text-white">
                 <Button className="w-48 text-md font-semibold">
                     {
                         osName === "Windows" &&
@@ -43,18 +41,7 @@ const DownloadBar = (
                     }
                     {osName} Installer
                 </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 border-none bg-[#0f172a]">
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem onClickclassName="cursor-pointer my-1 hover:bg-slate-800">
-                            <a href={linkMain} className="font-semibold text-white">{osName} Installer</a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="cursor-pointer my-1 hover:bg-slate-800">
-                            <a href={linkAlt} className="font-semibold text-white">{osName} AVX Only</a>
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        </a>
     )
 };
 

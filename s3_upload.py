@@ -26,7 +26,7 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
     if os.path.isfile(input_path):  # Added this condition to handle the case when the input is a single file
         print("Uploading file")
         filename = os.path.basename(input_path)
-        s3_path = os.path.join(s3_prefix, filename).replace("\\", "/")
+        s3_path = os.path.join(s3_prefix).replace("\\", "/")
         file_size = os.path.getsize(input_path)
         print(f"Uploading {input_path} to {bucket_name} at {s3_path}")
         start_time = time.time()
@@ -42,9 +42,9 @@ def upload_directory_to_s3(input_path, bucket_name, endpoint_url, aws_access_key
                 local_path = os.path.join(root, filename)
                 relative_path = os.path.relpath(local_path, input_path)
                 if s3_prefix == "":
-                    s3_path = os.path.join(top_level_directory, relative_path).replace("\\", "/")
+                    s3_path = os.path.join(relative_path).replace("\\", "/")
                 else:
-                    s3_path = os.path.join(s3_prefix, top_level_directory, relative_path).replace("\\", "/")
+                    s3_path = os.path.join(s3_prefix, relative_path).replace("\\", "/")
                 file_size = os.path.getsize(local_path)
                 print(f"Uploading {local_path} to {bucket_name} at {s3_path}")
                 start_time = time.time()
@@ -63,5 +63,4 @@ if __name__ == '__main__':
     parser.add_argument('aws_secret_access_key', type=str, help='The AWS secret access key.')
     parser.add_argument('--s3-prefix', type=str, help='The prefix to add to the S3 path (optional).', default="")
     args = parser.parse_args()
-
     upload_directory_to_s3(args.input_path, args.bucket_name, args.endpoint_url, args.aws_access_key_id, args.aws_secret_access_key, args.s3_prefix)

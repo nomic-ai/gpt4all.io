@@ -113,3 +113,4 @@ venv.bak/
 /.atlas
 .devcontainer/
 infrastructure/.terraform
+.DS_Store

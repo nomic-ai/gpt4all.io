@@ -77,7 +77,7 @@ function App() {
             <img
             alt="Nomic AI logo"
             src={process.env.PUBLIC_URL + "/nomic_logo.png"}
-            className='w-8 h-8'
+            className='w-12 h-8'
             />
         </a>
         <a href='https://github.com/nomic-ai/gpt4all'>

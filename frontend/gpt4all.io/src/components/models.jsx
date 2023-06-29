@@ -1,4 +1,5 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import * as DOMPurify from "dompurify";
 import { ArrowBigDownDash } from "lucide-react";
 import {
     Select,
@@ -61,17 +62,22 @@ const ModelsTable = () =>
             
             <div className="w-[600px] sm:w-[800px] py-4 border-t border-b border-dashed flex justify-center relative">
                 <div className="absolute top-0 left-0 w-[600px] border-l border-r border-dashed translate-x-24 -translate-y-4 h-72"></div>
-                <div className="w-[350px] sm:w-[400px] h-64 sm:h-56 relative p-4 rounded-md border shadow-md">
-                    <div className="w-full h-full rounded-md bg-white p-4 flex flex-col">
+                <div className="w-[350px] sm:w-[400px] min-h-64 sm:min-h-56 relative p-4 rounded-md border shadow-md">
+                    <div className="w-full h-full rounded-md bg-white p-4 flex flex-col relative">
                             <div className="border-b pb-2 mb-2">
                                 <h4 className="text-xl font-bold">{selectedModel.filename}</h4>
                             </div>
-                            <p className="leading-normal">{selectedModel.description}</p>
-                            <div className="w-full flex flex-row mt-4 justify-end">
-                                <a href={'url' in selectedModel ? `${selectedModel.url}` : `https://gpt4all.io/models/${selectedModel.filename}`}>
-                                    <ArrowBigDownDash className="w-6 h-6"/>
-                                </a>
-                            </div>
+
+                            <div dangerouslySetInnerHTML={
+                                {
+                                    __html: DOMPurify.sanitize(selectedModel.description)
+                                }
+                            }/>
+                            
+                            <a className="place-self-end" href={'url' in selectedModel ? `${selectedModel.url}` : `https://gpt4all.io/models/${selectedModel.filename}`}>
+                                <ArrowBigDownDash className="w-6 h-6"/>
+                            </a>
+                            
                     </div>
                 </div>
             </div>

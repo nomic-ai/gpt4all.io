@@ -224,7 +224,7 @@ function App() {
 
         </div>
         <div className={`w-full flex justify-center ${showMore ? "h-full": "max-h-[300px]"} mt-12`}>
-            <div className='grid grid-cols-1 lg:grid-cols-3 px-4 sm:px-8 md:px-36 relative gap-4 mx-auto h-full overflow-hidden'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 px-4 sm:px-8 md:px-36 relative gap-4 mx-auto h-full overflow-y-auto 2md:overflow-hidden'>
                 {
                     ecosystem_links.map((obj, idx) =>
                         <EcosystemItem
@@ -247,19 +247,21 @@ function App() {
         </div>
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>How GPT4All Works</h2>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                GPT4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
+            
+            <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
+                <p className='leading-relaxed'>
+                    GPT4All is an ecosystem to train and deploy <b>powerful</b> and <b>customized</b> large language models that run <b>locally</b> on consumer grade CPUs.
+                </p>
+                <p className='leading-relaxed'>
+                    The goal is simple - be the best instruction tuned assistant-style language model that any person or enterprise can freely use, distribute and build on.
+                </p>
 
-            </p>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                The goal is simple - be the best instruction tuned assistant-style language model that any person or enterprise can freely use, distribute and build on.
-            </p>
-
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                A GPT4All model is a 3GB - 8GB file that you can download and plug into the GPT4All open-source ecosystem software. <b>Nomic AI</b> supports and maintains
-                this software ecosystem to enforce quality and security alongside spearheading the effort to allow any person or enterprise to easily train and deploy
-                their own on-edge large language models.
-            </p>
+                <p className='leading-relaxed'>
+                    A GPT4All model is a 3GB - 8GB file that you can download and plug into the GPT4All open-source ecosystem software. <b>Nomic AI</b> supports and maintains
+                    this software ecosystem to enforce quality and security alongside spearheading the effort to allow any person or enterprise to easily train and deploy
+                    their own on-edge large language models.
+                </p>
+            </div>
 
 
         </div>
@@ -270,28 +272,32 @@ function App() {
 
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>GPT4All Datasets</h2>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                To train a powerful instruction-tuned assistant on your own data, you need to curate high-quality training and instruction-tuning datasets. Nomic AI has built
-                a platform called <b><a href="https://atlas.nomic.ai/">Atlas</a></b> to make manipulating and curating LLM training data easy.
-            </p>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                You can find the latest open-source, Atlas-curated GPT4All dataset on <b><a href="https://huggingface.co/datasets/nomic-ai/gpt4all-j-prompt-generations">Huggingface</a></b>.
-                Make sure to use the latest data version.
-            </p>
+            <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
+                <p className='leading-relaxed'>
+                    To train a powerful instruction-tuned assistant on your own data, you need to curate high-quality training and instruction-tuning datasets. Nomic AI has built
+                    a platform called <b><a className='underline' href="https://atlas.nomic.ai/">Atlas</a></b> to make manipulating and curating LLM training data easy.
+                </p>
+                <p className='leading-relaxed'>
+                    You can find the latest open-source, Atlas-curated GPT4All dataset on <b><a className='underline' href="https://huggingface.co/datasets/nomic-ai/gpt4all-j-prompt-generations">Huggingface</a></b>.
+                    Make sure to use the latest data version.
+                </p>
+            </div>
 
         </div>
 
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
             <h2 className='text-4xl font-bold text-center'>GPT4All Open Source Datalake</h2>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                Data is one the most important ingredients to successfully building a powerful, general purpose large language model. The GPT4All community has built the GPT4All Open Source datalake
-                as a staging ground for contributing instruction and assistant tuning data for future GPT4All model trains. It allows anyone to contribute to the democratic process of training
-                a large language model.
-            </p>
-            <p className='leading-normal w-full lg:w-2/3 mx-auto'>
-                All data contributions to the GPT4All Datalake will be open-sourced in their raw and Atlas-curated form. You can learn more details about the datalake on <b><a href="https://github.com/nomic-ai/gpt4all-datalake">Github</a></b>. You can contribute by using the GPT4All Chat client and 'opting-in' to
-                share your data on start-up. By default, the chat client will not let any conversation history leave your computer.
-            </p>
+            <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
+                <p className='leading-relaxed'>
+                    Data is one the most important ingredients to successfully building a powerful, general purpose large language model. The GPT4All community has built the GPT4All Open Source datalake
+                    as a staging ground for contributing instruction and assistant tuning data for future GPT4All model trains. It allows anyone to contribute to the democratic process of training
+                    a large language model.
+                </p>
+                <p className='leading-relaxed'>
+                    All data contributions to the GPT4All Datalake will be open-sourced in their raw and Atlas-curated form. You can learn more details about the datalake on <b><a className='underline' href="https://github.com/nomic-ai/gpt4all-datalake">Github</a></b>. You can contribute by using the GPT4All Chat client and 'opting-in' to
+                    share your data on start-up. By default, the chat client will not let any conversation history leave your computer.
+                </p>
+            </div>
 
             <p>
                 Explore a recent snapshot of the GPT4All Datalake in Atlas below.

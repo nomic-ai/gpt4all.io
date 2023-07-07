@@ -43,7 +43,7 @@ const ModelsTable = () =>
 
     return (
         <div className="flex flex-col justify-center gap-4 mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-2">Model Explorer</h2>
+            <h2 id="model-explorer" className="text-4xl font-bold text-center mb-2">Model Explorer</h2>
             <Select onValueChange={onSelect}>
                 <SelectTrigger className="w-[300px] sm:w-[400px] mx-auto">
                     <SelectValue placeholder={models[0] && models[0].filename}/>

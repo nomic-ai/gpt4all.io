@@ -100,7 +100,7 @@ function App() {
       <main className='flex flex-col justify-center h-full items-center px-8 md:px-36 mt-[8rem] xl:mt-24'>
         <div className='2md:mt-0 flex flex-col lg:flex-row justify-center lg:justify-between w-full'>
             <div className='flex flex-col w-full lg:w-1/2 gap-4 text-center md:text-start'>
-                <h2 className='text-xl md:text-3xl font-bold text-center 2md:text-start'>
+                <h2 id='gpt4all' className='text-xl md:text-3xl font-bold text-center 2md:text-start'>
                     GPT4All
                 </h2>
                 <p className='text-3xl xl:text-5xl leading-normal lg:pr-12 text-center 2md:text-start'>
@@ -145,7 +145,7 @@ function App() {
         {/* <div className='w-full items-center flex flex-col justify-center mb-24'>
 
             <Vertical/>
-            <h2 className='text-4xl font-bold text-center mt-8'>
+            <h2 id='gpt4all-capabilities' className='text-4xl font-bold text-center mt-8'>
                     GPT4All's Capabilities
             </h2>
             <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your own hardware.</span>
@@ -155,7 +155,7 @@ function App() {
       <div className='w-full items-center flex flex-col justify-center my-14'>
 
             <Vertical/>
-            <h2 className='text-4xl font-bold text-center mt-8'>
+            <h2 id='gpt4all-capabilities' className='text-4xl font-bold text-center mt-8'>
                     GPT4All's Capabilities
             </h2>
             <span className='text-lg text-slate-500 text-center mt-2 px-6 sm:px-0'>Explore what GPT4All can do. On your own hardware.</span>
@@ -197,7 +197,7 @@ function App() {
 
         </div>
         <div className='w-full flex flex-col px-4 sm:px-8 md:px-36 mt-24'>
-            <h2 className='text-4xl font-bold text-center'>
+            <h2 id='installation-instructions' className='text-4xl font-bold text-center'>
                     Installation Instructions
             </h2>
             <div className='w-full mt-8'>
@@ -206,18 +206,18 @@ function App() {
         </div>
         
         <div className='hidden lg:block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>
-            <h2 className='text-4xl font-bold text-center mb-4'>Performance Benchmarks</h2>
+            <h2 id='performance-benchmarks' className='text-4xl font-bold text-center mb-4'>Performance Benchmarks</h2>
             <PerformanceTable/>
         </div>
 
         {/*<div className='sm:hidden block w-full flex flex-col justify-center gap-8 px-4 md:px-36 mt-14'>*/}
-        {/*    <h2 className='text-4xl font-bold text-center'>Performance Benchmarks</h2>*/}
+        {/*    <h2 id='performance-benchmarks' className='text-4xl font-bold text-center'>Performance Benchmarks</h2>*/}
         {/*    <PerformanceTableMobile/>*/}
         {/*</div>*/}
 
         
         <div className='flex flex-col w-full text-center gap-4 sm:px-0 px-4'>
-            <h2 className='text-4xl font-semibold mt-24'>
+            <h2 id='gpt4all-ecosystem' className='text-4xl font-semibold mt-24'>
                 GPT4All Ecosystem
             </h2>
             <span className='text-lg text-slate-500 text-center'>Explore the GPT4All open source ecosystem</span>
@@ -246,7 +246,7 @@ function App() {
             </div>
         </div>
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
-            <h2 className='text-4xl font-bold text-center'>How GPT4All Works</h2>
+            <h2 id='how-gpt4all-works' className='text-4xl font-bold text-center'>How GPT4All Works</h2>
             
             <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
                 <p className='leading-relaxed'>
@@ -271,7 +271,7 @@ function App() {
 
 
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
-            <h2 className='text-4xl font-bold text-center'>GPT4All Datasets</h2>
+            <h2 id='gpt4all-datasets' className='text-4xl font-bold text-center'>GPT4All Datasets</h2>
             <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
                 <p className='leading-relaxed'>
                     To train a powerful instruction-tuned assistant on your own data, you need to curate high-quality training and instruction-tuning datasets. Nomic AI has built
@@ -286,7 +286,7 @@ function App() {
         </div>
 
         <div className='w-full px-4 sm:px-8 md:px-36 flex flex-col justify-center items-center mt-14 gap-8'>
-            <h2 className='text-4xl font-bold text-center'>GPT4All Open Source Datalake</h2>
+            <h2 id='gpt4all-open-source-datalake' className='text-4xl font-bold text-center'>GPT4All Open Source Datalake</h2>
             <div className='w-full lg:w-2/3 px-0 space-y-8 xl:px-32'>
                 <p className='leading-relaxed'>
                     Data is one the most important ingredients to successfully building a powerful, general purpose large language model. The GPT4All community has built the GPT4All Open Source datalake

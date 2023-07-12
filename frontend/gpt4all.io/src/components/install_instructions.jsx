@@ -25,7 +25,12 @@ const InstallInstructions = () => {
             After download and installation you should be able to find the application in the directory you specified in the installer.
             You will find a desktop icon for GPT4All after installation.
           </p>
-          <p>NOTE: On Windows, the installer might show a security complaint. This is being addressed as we're actively setting up cert sign for Windows.</p>
+          <p>NOTE:
+            <ul>
+              <li>On Windows, the installer might show a security complaint. This is being addressed as we're actively setting up cert sign for Windows.</li>
+              <li>The CPU needs to support <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX or AVX2 instructions</a>.</li>
+            </ul>
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="macos">
@@ -38,7 +43,11 @@ const InstallInstructions = () => {
             On macOS if you chose the default install location you'll find the application in the shared /Applications folder.
           </p>
           <p>
-            NOTE: You will be need to be on the latest version of OSX.
+            NOTE:
+            <ul>
+              <li>You will be need to be on the latest version of OSX.</li>
+              <li>The CPU needs to support <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX or AVX2 instructions</a>.</li>
+            </ul>
           </p>
         </div>
       </TabsContent>
@@ -52,7 +61,11 @@ const InstallInstructions = () => {
 
           </p>
           <p>
-            NOTE: You may need to build from source if you are not working off of the latest version of Ubuntu.
+            NOTE:
+            <ul>
+              <li>You may need to build from source if you are not working off of the latest version of Ubuntu.</li>
+              <li>The CPU needs to support <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX or AVX2 instructions</a>.</li>
+            </ul>
           </p>
         </div>
       </TabsContent>

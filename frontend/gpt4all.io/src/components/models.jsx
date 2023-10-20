@@ -12,7 +12,7 @@ import {
 } from "./ui/select";
 
 const getModels = async () => {
-    const response = await fetch("https://gpt4all.io/models/models.json");
+    const response = await fetch("https://gpt4all.io/models/models2.json");
     const jsonData = await response.json();
     return jsonData;
 }
